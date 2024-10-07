@@ -905,6 +905,15 @@ function TotemTimers_SetupGlobals()
 		SlashCmdList["TOTEMTIMERS"] = function(msg)
 			TotemTimers(msg);
 		end
+
+		-- slash command to reset timers for turtle wow
+		SLASH_RESETTOTEMS1 = "/resettotems";
+		SlashCmdList["RESETTOTEMS"] = function()
+			TTActiveTotems = { }; -- Reset the active totems table
+			--DEFAULT_CHAT_FRAME:AddMessage("Totem timers have been reset.");
+			TotemTimers_UpdateButtons();
+		end
+
 		TotemTimers_UpdateButtons();
 	else
 		getglobal("TotemTimersFrame"):Hide();
